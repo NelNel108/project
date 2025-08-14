@@ -407,8 +407,47 @@ function clearDraft() {
     localStorage.removeItem('websiteRequestDraft');
 }
 
-// Load draft on page load
-// document.addEventListener('DOMContentLoaded', loadDraft);
+(function () {
+  emailjs.init("nCFKhNomUqU-M4--B"); // Replace with your actual public key
+})();
 
-// Save draft periodically
-// setInterval(saveDraft, 30000); // Save every 30 seconds
+function sendRequest() {
+  const name = document.getElementById("studentName").value;
+  const courseYear = document.getElementById("courseYear").value;
+  const email = document.getElementById("email").value;
+  const websiteType = document.getElementById("websiteType").value;
+  const budget = document.getElementById("budget").value;
+  const timeline = document.getElementById("timeline").value;
+  const instructions = document.getElementById("instructions").value;
+  const time = new Date().toLocaleString();
+
+  const templateParams = {
+    name: name,
+    email: email,
+    courseYear: courseYear,
+    websiteType: websiteType,
+    budget: budget,
+    timeline: timeline,
+    instructions: instructions,
+    time: time,
+    title: "Student Website Request"
+  };
+
+  document.querySelector(".btn-text").style.display = "none";
+  document.querySelector(".btn-loading").style.display = "inline";
+
+  emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", templateParams)
+    .then(() => {
+      document.getElementById("formContainer").style.display = "none";
+      document.getElementById("successContainer").style.display = "block";
+      document.getElementById("requestForm").reset();
+      document.querySelector(".btn-text").style.display = "inline";
+      document.querySelector(".btn-loading").style.display = "none";
+    })
+    .catch((error) => {
+      console.error("Failed to send request:", error);
+      alert("Something went wrong. Please try again.");
+      document.querySelector(".btn-text").style.display = "inline";
+      document.querySelector(".btn-loading").style.display = "none";
+    });
+}
