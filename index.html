@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Request Platform - Para sa mga Students</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1 class="header-title">🌐 Website Request Platform</h1>
+                <p class="header-subtitle">Para sa mga first-year students na kailangan ng website projects</p>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Request Form -->
+            <div class="form-container" id="formContainer">
+                <div class="form-header">
+                    <h2>Request Your Website Project</h2>
+                    <p>Fill out this form para ma-discuss natin ang your website needs. Don't worry, very simple lang!</p>
+                </div>
+
+                <form class="request-form" id="requestForm">
+                    <!-- Personal Information -->
+                    <div class="form-section">
+                        <h3>Personal Information</h3>
+                        <div class="form-group">
+                            <label for="studentName">Your Full Name *</label>
+                            <input type="text" id="studentName" name="studentName" required>
+                            <span class="error-message" id="nameError"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="courseYear">Course & Year *</label>
+                            <input type="text" id="courseYear" name="courseYear" placeholder="e.g., BSCS 1st Year" required>
+                            <span class="error-message" id="courseError"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" required>
+                            <span class="error-message" id="emailError"></span>
+                        </div>
+                    </div>
+
+                    <!-- Project Details -->
+                    <div class="form-section">
+                        <h3>Project Details</h3>
+                        <div class="form-group">
+                            <label for="websiteType">Type of Website *</label>
+                            <select id="websiteType" name="websiteType" required>
+                                <option value="">Select website type...</option>
+                                <option value="personal-portfolio">Personal Portfolio</option>
+                                <option value="business-website">Business Website</option>
+                                <option value="school-project">School Project</option>
+                                <option value="blog">Blog/News Website</option>
+                                <option value="ecommerce">E-commerce Store</option>
+                                <option value="landing-page">Landing Page</option>
+                                <option value="other">Other (please specify)</option>
+                            </select>
+                            <span class="error-message" id="typeError"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="budget">Budget Range *</label>
+                            <select id="budget" name="budget" required>
+                                <option value="">Select your budget...</option>
+                                <option value="500-1000">₱500 - ₱1,000</option>
+                                <option value="1000-2500">₱1,000 - ₱2,500</option>
+                                <option value="2500-5000">₱2,500 - ₱5,000</option>
+                                <option value="5000-plus">₱5,000+</option>
+                                <option value="flexible">Flexible/To discuss</option>
+                            </select>
+                            <span class="error-message" id="budgetError"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="timeline">Preferred Timeline</label>
+                            <select id="timeline" name="timeline">
+                                <option value="">Select timeline...</option>
+                                <option value="1-week">1 Week</option>
+                                <option value="2-weeks">2 Weeks</option>
+                                <option value="1-month">1 Month</option>
+                                <option value="flexible">Flexible</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Special Instructions -->
+                    <div class="form-section">
+                        <h3>Additional Details</h3>
+                        <div class="form-group">
+                            <label for="instructions">Special Instructions or Requirements</label>
+                            <textarea id="instructions" name="instructions" rows="5" placeholder="Tell us more about your project... What features do you need? Any specific colors or design preferences? Don't hesitate to share your ideas!"></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="form-actions">
+                        <button type="submit" class="submit-btn">
+                            <span class="btn-text">Submit Request</span>
+                            <span class="btn-loading" style="display: none;">Submitting...</span>
+                        </button>
+                        <p class="form-note">After submitting, I'll review your request and get back to you within 24 hours!</p>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Success Message -->
+            <div class="success-container" id="successContainer" style="display: none;">
+                <div class="success-content">
+                    <div class="success-icon">✅</div>
+                    <h2>Request Submitted Successfully!</h2>
+                    <p>Salamat! I've received your website request. I'll review the details and contact you within 24 hours to discuss the project further.</p>
+                    <div class="success-actions">
+                        <button class="btn-secondary" onclick="showForm()">Submit Another Request</button>
+                        <button class="btn-primary" onclick="viewSubmissions()">View My Submissions</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Submissions View -->
+            <div class="submissions-container" id="submissionsContainer" style="display: none;">
+                <div class="submissions-header">
+                    <h2>Your Submitted Requests</h2>
+                    <button class="btn-back" onclick="showForm()">← Back to Form</button>
+                </div>
+                <div class="submissions-list" id="submissionsList">
+                    <!-- Submissions will be populated by JavaScript -->
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>Made with ❤️ to help students get awesome websites | Contact me for any questions!</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
