@@ -436,7 +436,7 @@ function sendRequest() {
   document.querySelector(".btn-text").style.display = "none";
   document.querySelector(".btn-loading").style.display = "inline";
 
-  emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", templateParams)
+  emailjs.send("service_lr8k6kh", "template_uhhh6da", templateParams)
     .then(() => {
       document.getElementById("formContainer").style.display = "none";
       document.getElementById("successContainer").style.display = "block";
