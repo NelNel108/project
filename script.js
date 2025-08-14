@@ -408,7 +408,7 @@ function clearDraft() {
 }
 
 (function () {
-  emailjs.init("nCFKhNomUqU-M4--B"); // Replace with your actual public key
+  emailjs.init("public_nCFKhNomUqU-M4--B"); // Replace with your actual public key
 })();
 
 function sendRequest() {
