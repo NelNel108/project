@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
 </head>
 <body>
     <div class="container">
@@ -28,7 +29,7 @@
                     <p>Fill out this form para ma-discuss natin ang your website needs. Don't worry, very simple lang!</p>
                 </div>
 
-                <form class="request-form" id="requestForm">
+                <form class="request-form" id="requestForm" onsubmit="sendRequest(); return false;">
                     <!-- Personal Information -->
                     <div class="form-section">
                         <h3>Personal Information</h3>
